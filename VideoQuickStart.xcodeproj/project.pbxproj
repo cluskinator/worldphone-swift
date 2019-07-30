@@ -25,7 +25,6 @@
 		5F80952322DAEA7F00259F4A /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F80952222DAEA7F00259F4A /* SignupViewController.swift */; };
 		5F80952522DAEA9100259F4A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F80952422DAEA9100259F4A /* HomeViewController.swift */; };
 		5F80952722DAF80600259F4A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5F80952622DAF80600259F4A /* GoogleService-Info.plist */; };
-		5F80952922DB98A700259F4A /* TokenGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F80952822DB98A700259F4A /* TokenGenerator.swift */; };
 		8B79D46A1C2252A100489AA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B79D4691C2252A100489AA5 /* AppDelegate.swift */; };
 		8B79D46C1C2252A100489AA5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B79D46B1C2252A100489AA5 /* ViewController.swift */; };
 		8B79D46F1C2252A100489AA5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B79D46D1C2252A100489AA5 /* Main.storyboard */; };
@@ -58,13 +57,12 @@
 		4B63DD321F73032D00F0737E /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		4B63DD371F730C1A00F0737E /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		4BAA74EA1D8B5CBE00239F19 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		5F8094F422DAD7A200259F4A /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = "../../../Downloads/drive-download-20190714T030514Z-001/Fonts"; sourceTree = "<group>"; };
+		5F8094F422DAD7A200259F4A /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = "../../../Downloads/Jacob Waites worldphone proposal and assets/Fonts"; sourceTree = "<group>"; };
 		5F80951E22DAEA6300259F4A /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		5F80952022DAEA6B00259F4A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5F80952222DAEA7F00259F4A /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		5F80952422DAEA9100259F4A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5F80952622DAF80600259F4A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		5F80952822DB98A700259F4A /* TokenGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenGenerator.swift; sourceTree = "<group>"; };
 		7E410C68B4DBF6121A52F26E /* libPods-TwilioVideo-VideoQuickStart.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TwilioVideo-VideoQuickStart.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B79D4661C2252A100489AA5 /* VideoQuickStart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoQuickStart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B79D4691C2252A100489AA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -181,7 +179,6 @@
 				5F80952022DAEA6B00259F4A /* LoginViewController.swift */,
 				5F80952222DAEA7F00259F4A /* SignupViewController.swift */,
 				5F80952422DAEA9100259F4A /* HomeViewController.swift */,
-				5F80952822DB98A700259F4A /* TokenGenerator.swift */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -321,7 +318,6 @@
 				5F80952322DAEA7F00259F4A /* SignupViewController.swift in Sources */,
 				8B79D46C1C2252A100489AA5 /* ViewController.swift in Sources */,
 				8B79D46A1C2252A100489AA5 /* AppDelegate.swift in Sources */,
-				5F80952922DB98A700259F4A /* TokenGenerator.swift in Sources */,
 				5F80952522DAEA9100259F4A /* HomeViewController.swift in Sources */,
 				4BAA74EB1D8B5CBE00239F19 /* Utils.swift in Sources */,
 				4B63DD381F730C1A00F0737E /* Settings.swift in Sources */,

@@ -440,7 +440,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="you are now logged in.  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A12-FD-W9C">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="you are now logged in.  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A12-FD-W9C">
                                 <rect key="frame" x="22" y="133" width="359" height="40"/>
                                 <fontDescription key="fontDescription" name="Karla-Regular" family="Karla" pointSize="34"/>
                                 <color key="textColor" red="0.56862745100000001" green="0.8862745098" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -476,6 +476,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.2470588235" green="0.23137254900000001" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="A12-FD-W9C" firstAttribute="leading" secondItem="yZD-87-8Zr" secondAttribute="leadingMargin" constant="6" id="1Dq-YF-pTr"/>
                             <constraint firstItem="enm-5n-qR7" firstAttribute="top" secondItem="FNs-0k-eQ5" secondAttribute="bottom" constant="203" id="CKF-4R-IRV"/>
                             <constraint firstItem="FNs-0k-eQ5" firstAttribute="leading" secondItem="yZD-87-8Zr" secondAttribute="leadingMargin" constant="43" id="Fcv-JF-Jtp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="FNs-0k-eQ5" secondAttribute="trailing" constant="38" id="Q01-rr-uyG"/>
@@ -519,6 +520,6 @@
         <image name="worldphone_logo_brandmark" width="1366" height="360"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="k0b-fH-rQP"/>
+        <segue reference="sgs-mX-WYL"/>
     </inferredMetricsTieBreakers>
 </document>

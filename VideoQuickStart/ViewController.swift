@@ -12,9 +12,11 @@ class ViewController: UIViewController {
 
     // MARK: View Controller Members
 
-    // Configure remote URL to fetch token from.  Note for future:  this needs to be hidden.  Should not be able to just visit website and see tokens being generated.  Not sure how to hide, but will need to research this.
+    // Configure remote URL to fetch token from.  Note for future:  this needs to be hidden.  Should not be able to just visit website and see tokens being generated. These could be intercepted by bad actors. Not sure how to hide, but will need to research this.
+    //let tokenUrl = "https://worldphone-token.herokuapp.com/"
+    //let tokenUrl = "http://localhost:3000"
     let tokenUrl = "https://worldphone-token.herokuapp.com/"
-    var accessToken = ""
+    var accessToken = "TWILIO_ACCESS_TOKEN"
     
     // Video SDK components
     // This creates each variable as a specific type of object.
@@ -42,7 +44,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "QuickStart"
+        self.title = "worldphone"
         self.messageLabel.adjustsFontSizeToFitWidth = true;
         self.messageLabel.minimumScaleFactor = 0.75;
 
@@ -63,24 +65,7 @@ class ViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
         self.view.addGestureRecognizer(tap)
     }
-    
-    fileprivate func generateToken() -> String? {
 
-        var accessToken : String?
-        do {
-            if let url = URL(string: tokenUrl),
-                let data = try? Data(contentsOf: url),
-                let result = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: AnyObject] {
-                print(data)
-                accessToken = result["token"] as? String
-            }
-        } catch {
-            print("Error obtaining token: \(error)")
-        }
-
-        return accessToken
-    }
-    
     override var prefersHomeIndicatorAutoHidden: Bool {
         return self.room != nil
     }
@@ -131,33 +116,17 @@ class ViewController: UIViewController {
 
     // MARK: IBActions
     @IBAction func connect(sender: AnyObject) {
-        // Configure access token either from server or manually.  Here I'm pulling from my server.
-        // pulled a bit of the code from SyncManager.swift from Twilio here: https://www.twilio.com/docs/sync/quickstart/ios#download-configure-and-run-the-starter-app
-    
-        //generateToken()
-        
-        let string = "[{\"form_id\":3465,\"canonical_name\":\"df_SAWERQ\",\"form_name\":\"Activity 4 with Images\",\"form_desc\":null}]"
-        let data = string.data(using: .utf8)!
-        do {
-            if let jsonArray = try JSONSerialization.jsonObject(with: data, options : .allowFragments) as? [Dictionary<String,Any>]
-            {
-                print(jsonArray) // use the json here
-            } else {
-                print("bad json")
+        // Configure access token either from server or manually.
+        // If the default wasn't changed, try fetching from server.
+        // Michael:  removed if statement so token is created every call.  previously, it was for just if it was set equal to declaration.
+            do {
+                accessToken = try TokenUtils.fetchToken(url: tokenUrl)
+            } catch {
+                let message = "Failed to fetch access token"
+                logMessage(messageText: message)
+                return
             }
-        } catch let error as NSError {
-            print(error)
-        }
-
         
-        do {
-            accessToken = try TokenUtils.fetchToken(url: tokenUrl)
-            print(accessToken)
-        } catch {
-            let message = "Failed to fetch access token"
-            logMessage(messageText: message)
-            return
-        }
         
         // Prepare local media which we will share with Room Participants.
         self.prepareLocalMedia()
@@ -187,11 +156,16 @@ class ViewController: UIViewController {
             // The name of the Room where the Client will attempt to connect to. Please note that if you pass an empty
             // Room `name`, the Client will create one for you. You can get the name or sid from any connected Room.
             builder.roomName = self.roomTextField.text
+            
+            //when a call is created, send that client name to a list of all the room names.
+            //increment count to 1.
+            //if increment count is 1, pull the room id of that and enter that as room name.
+            //else if increment count >1, create new room.
         }
         
         // Connect to the Room using the options we provided.
         room = TwilioVideo.connect(with: connectOptions, delegate: self)
-        
+    
         logMessage(messageText: "Attempting to connect to room \(String(describing: self.roomTextField.text))")
         
         self.showRoomUI(inRoom: true)
@@ -278,7 +252,6 @@ class ViewController: UIViewController {
     func prepareLocalMedia() {
 
         // We will share local audio and video when we connect to the Room.
-
         // Create an audio track.
         if (localAudioTrack == nil) {
             localAudioTrack = TVILocalAudioTrack.init(options: nil, enabled: true, name: "Microphone")
@@ -394,6 +367,9 @@ extension ViewController : TVIRoomDelegate {
             cleanupRemoteParticipant()
         }
         logMessage(messageText: "Room \(room.name), Participant \(participant.identity) disconnected")
+        
+        //michael added this
+        self.room!.disconnect()
     }
 }
 
